@@ -4,3 +4,4 @@
 2024-08-04T14:12:12  ci(report): add --fail-on threshold handling
 2024-08-16T09:29:19  chore(detect): fix off-by-one in line numbers
 2024-09-16T16:46:26  feat: PROMETHEUS unbound
+2024-09-28T11:03:33  test(io): guard against ReDoS in patterns
