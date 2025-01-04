@@ -9,3 +9,4 @@
 2024-11-10T13:37:47  fix(format): make timestamps timezone-aware
 2024-11-22T08:54:54  test: it's not flaky, you're flaky
 2024-12-05T15:11:01  perf(report): wire the MCP tool schema
+2025-01-04T10:28:08  build(detect): normalize unicode before matching
