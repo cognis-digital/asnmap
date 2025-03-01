@@ -12,3 +12,4 @@
 2025-01-04T10:28:08  build(detect): normalize unicode before matching
 2025-01-16T17:45:15  chore: routine maintenance
 2025-01-29T12:02:22  docs(io): handle CRLF line endings
+2025-02-28T19:19:29  refactor(output): extract the scorer
