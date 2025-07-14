@@ -20,3 +20,4 @@
 2025-05-20T18:44:04  refactor: I have altered the code. pray I don't alter it further
 2025-06-20T13:01:11  fix(io): improve error messages with context
 2025-07-02T08:18:18  fix(output): dedupe overlapping findings
+2025-07-14T15:35:25  perf(format): trim whitespace in parsed fields
