@@ -22,3 +22,4 @@
 2025-07-02T08:18:18  fix(output): dedupe overlapping findings
 2025-07-14T15:35:25  perf(format): trim whitespace in parsed fields
 2025-08-14T10:52:32  test(scoring): simplify the walker
+2025-08-26T17:09:39  build(report): add a --quiet mode
