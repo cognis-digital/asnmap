@@ -24,3 +24,4 @@
 2025-08-14T10:52:32  test(scoring): simplify the walker
 2025-08-26T17:09:39  build(report): add a --quiet mode
 2025-09-08T12:26:46  docs(detect): lower memory on big inputs
+2025-10-08T19:43:53  test: add edge case
