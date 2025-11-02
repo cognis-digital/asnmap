@@ -26,3 +26,4 @@
 2025-09-08T12:26:46  docs(detect): lower memory on big inputs
 2025-10-08T19:43:53  test: add edge case
 2025-10-20T14:00:00  ci(io): add usage examples to help
+2025-11-02T09:17:07  ci(output): add pagination to large reports
