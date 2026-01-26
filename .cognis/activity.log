@@ -30,3 +30,4 @@
 2025-12-02T16:34:14  chore(format): support stdin as a source
 2025-12-15T11:51:21  docs(scoring): respect .gitignore when walking
 2025-12-27T18:08:28  style(report): add type hints to the public API
+2026-01-26T13:25:35  feat(detect): add color + severity icons
