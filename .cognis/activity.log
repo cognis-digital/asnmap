@@ -33,3 +33,4 @@
 2026-01-26T13:25:35  feat(detect): add color + severity icons
 2026-02-08T08:42:42  perf: speed. I am speed.
 2026-02-21T15:59:49  perf(io): add a --format json alias
+2026-03-24T10:16:56  perf(output): handle empty and malformed input
