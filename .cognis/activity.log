@@ -35,3 +35,4 @@
 2026-02-21T15:59:49  perf(io): add a --format json alias
 2026-03-24T10:16:56  perf(output): handle empty and malformed input
 2026-04-05T17:33:03  build(format): clarify the README quickstart
+2026-04-17T12:50:10  feat(scoring): memoize repeated lookups
