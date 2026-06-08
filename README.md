@@ -36,9 +36,10 @@ Map ASN/CIDR ownership & neighbors from whois/RIR exports — without standing u
 <a name="features"></a>
 ## Features
 
-- ✅ Todo
-- ✅ Fixme
-- ✅ Xxx
+- ✅ Parse Export
+- ✅ Build Asn Map
+- ✅ Find Neighbors
+- ✅ Analyze
 - ✅ Runs on Linux/macOS/Windows · Docker · devcontainer
 - ✅ Ports in Python, JavaScript, Go, and Rust (`ports/`)
 
