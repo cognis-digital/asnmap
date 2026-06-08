@@ -1,0 +1,10 @@
+{
+  "name": "@cognis/asnmap",
+  "version": "0.2.0",
+  "description": "JavaScript port of asnmap (Cognis Neural Suite)",
+  "bin": {
+    "asnmap": "index.js"
+  },
+  "license": "LicenseRef-COCL-1.0",
+  "type": "module"
+}
