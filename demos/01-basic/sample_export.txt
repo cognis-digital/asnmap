@@ -1,0 +1,14 @@
+# Pipe-delimited RIR/whois export: cidr | asn | org | country | registry
+# --- owned blocks ---
+203.0.113.0/25   | AS64500 | EXAMPLE-CORP   | US | arin
+203.0.113.128/25 | AS64500 | EXAMPLE-CORP   | US | arin
+198.51.100.0/24  | AS64500 | EXAMPLE-CORP   | US | arin
+23.0.0.0/8       | AS64500 | EXAMPLE-CORP   | US | arin
+# --- adjacent peer block (aggregation candidate) ---
+45.66.0.0/22     | AS64501 | PEER-NET       | DE | ripe
+45.66.4.0/22     | AS64501 | PEER-NET       | DE | ripe
+# --- triage conditions ---
+198.51.100.0/24  | AS64999 | UNKNOWN-ORIGIN | NL | ripe
+198.51.100.0/26  | AS64502 | SUBALLOC       | US | arin
+10.0.0.0/16      | AS64500 | EXAMPLE-CORP   | US | arin
+2001:db8::/32    | AS64500 | EXAMPLE-CORP   |    | arin
