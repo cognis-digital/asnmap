@@ -20,6 +20,31 @@ pip install cognis-asnmap
 asnmap scan .            # → prioritized findings in seconds
 ```
 
+## Usage — step by step
+
+1. **Install** the CLI (console script `asnmap`):
+   ```bash
+   pip install cognis-asnmap
+   ```
+2. **Print the ASN -> CIDR ownership map** from a whois/RIR export (`-` reads stdin):
+   ```bash
+   asnmap map export.txt
+   ```
+3. **Run full triage analysis** to surface neighbor pairs and findings:
+   ```bash
+   asnmap analyze export.txt
+   ```
+4. **Read the result** as JSON, or write a shareable HTML report (`-o` writes to a file):
+   ```bash
+   asnmap analyze export.txt --format json
+   asnmap analyze export.txt --format html -o asnmap-report.html
+   ```
+5. **Automate in CI** — exit 0 = ok, 1 = IO error, 2 = medium+ findings present (pipeline gate):
+   ```yaml
+   - run: pip install cognis-asnmap
+   - run: asnmap analyze export.txt --format json -o asnmap.json
+   ```
+
 ## Contents
 
 - [Why asnmap?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
