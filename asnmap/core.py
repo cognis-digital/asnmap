@@ -102,7 +102,10 @@ class Report:
     def max_severity(self) -> str:
         if not self.findings:
             return "info"
-        return max(self.findings, key=lambda f: SEVERITY_ORDER[f.severity]).severity
+        return max(
+            self.findings,
+            key=lambda f: SEVERITY_ORDER.get(f.severity, 0),
+        ).severity
 
     def to_dict(self) -> dict:
         return {
@@ -145,10 +148,12 @@ def parse_export(text: str) -> Tuple[List[Record], List[str]]:
         except ValueError as exc:
             errors.append(f"line {lineno}: invalid CIDR {cidr!r}: {exc}")
             continue
-        if not asn or not asn.lstrip("ASas").isdigit():
+        asn_digits = asn.lstrip("ASas")
+        if not asn_digits or not asn_digits.isdigit():
             errors.append(f"line {lineno}: invalid ASN {asn!r}")
             continue
-        norm_asn = "AS" + asn.lstrip("ASas")
+        # Strip leading zeros from the numeric portion (e.g. AS064500 -> AS64500).
+        norm_asn = "AS" + str(int(asn_digits))
         records.append(
             Record(
                 cidr=cidr,

@@ -194,9 +194,15 @@ def build_parser() -> argparse.ArgumentParser:
 
 def _read_input(path: str) -> str:
     if path == "-":
-        return sys.stdin.read()
-    with open(path, "r", encoding="utf-8") as fh:
-        return fh.read()
+        try:
+            return sys.stdin.read()
+        except UnicodeDecodeError as exc:
+            raise OSError(f"stdin contains non-UTF-8 bytes: {exc}") from exc
+    try:
+        with open(path, "r", encoding="utf-8") as fh:
+            return fh.read()
+    except UnicodeDecodeError as exc:
+        raise OSError(f"{path!r} contains non-UTF-8 bytes: {exc}") from exc
 
 
 def main(argv: Optional[List[str]] = None) -> int:
@@ -209,8 +215,12 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(f"{TOOL_NAME}: cannot read {args.file}: {exc}", file=sys.stderr)
         return 1
 
-    records, errors = parse_export(text)
-    report = analyze(records, errors)
+    try:
+        records, errors = parse_export(text)
+        report = analyze(records, errors)
+    except Exception as exc:  # pragma: no cover
+        print(f"{TOOL_NAME}: analysis failed: {exc}", file=sys.stderr)
+        return 1
 
     if args.command == "map" and args.format == "table":
         rendered = _render_map(report)
@@ -233,7 +243,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         return 1
 
     # Pipeline gate: non-zero exit when medium-or-higher findings exist.
-    if SEVERITY_ORDER[report.max_severity] >= SEVERITY_ORDER["medium"]:
+    if SEVERITY_ORDER.get(report.max_severity, 0) >= SEVERITY_ORDER["medium"]:
         return 2
     return 0
 
