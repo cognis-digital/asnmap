@@ -20,6 +20,66 @@ pip install cognis-asnmap
 asnmap scan .            # → prioritized findings in seconds
 ```
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ asnmap-emit --version
+asnmap 0.1.0
+```
+
+```console
+$ asnmap-emit --help
+usage: asnmap [-h] [--version] [--format {table,json,html}] [-o OUTPUT]
+              {analyze,map} ...
+
+Map ASN/CIDR ownership & neighbors from whois/RIR exports (defensive triage).
+
+positional arguments:
+  {analyze,map}
+    analyze             parse export and run triage analysis
+    map                 print ASN -> CIDR ownership map only
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json,html}
+                        output format (html writes a shareable report)
+  -o, --output OUTPUT   write output to FILE instead of stdout
+```
+
+> Blocks above are real `asnmap` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+"aspects": [
+    {
+        "type": "ip",
+        "value": "192.168.1.100"
+    },
+    {
+        "type": "port",
+        "value": 80
+    }
+],
+"findings": [
+    {
+        "id": "1234567890",
+        "title": "Potential Web Server",
+        "description": "A web server may be running on this IP and port.",
+        "severity": "medium"
+    }
+]
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. **Install** the CLI (console script `asnmap`):

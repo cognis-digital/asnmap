@@ -1,0 +1,3 @@
+$ asnmap-emit --version
+
+asnmap 0.1.0

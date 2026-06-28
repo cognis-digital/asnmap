@@ -1,0 +1,18 @@
+$ asnmap-emit --help
+
+usage: asnmap [-h] [--version] [--format {table,json,html}] [-o OUTPUT]
+              {analyze,map} ...
+
+Map ASN/CIDR ownership & neighbors from whois/RIR exports (defensive triage).
+
+positional arguments:
+  {analyze,map}
+    analyze             parse export and run triage analysis
+    map                 print ASN -> CIDR ownership map only
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json,html}
+                        output format (html writes a shareable report)
+  -o, --output OUTPUT   write output to FILE instead of stdout
